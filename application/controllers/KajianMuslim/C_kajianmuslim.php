@@ -38,7 +38,7 @@ class C_kajianmuslim extends CI_Controller {
 	}
 
 	public function uploadkajian(){
-		$judul_kajian = $this->input->post('judul_kajian');
+		$judul_kajian = str_replace("'", "", $this->input->post('judul_kajian'));
 		$pemateri_kajian = $this->input->post('pemateri_kajian');
 		$tanggal = $this->input->post('tanggal_kajian');
 		$tanggal_kajian = date('Y-m-d',strtotime($tanggal));
@@ -105,7 +105,7 @@ class C_kajianmuslim extends CI_Controller {
 
 	public function UpdateKajian($id)
 	{
-		$judul_kajian = $this->input->post('judul_kajian');
+		$judul_kajian = str_replace("'", "", $this->input->post('judul_kajian'));
 		$pemateri_kajian = $this->input->post('pemateri_kajian');
 		$tanggal = $this->input->post('tanggal_kajian');
 		$tanggal_kajian = date('Y-m-d',strtotime($tanggal));

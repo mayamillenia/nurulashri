@@ -11,6 +11,8 @@ class C_eventnurash extends CI_Controller {
 		$this->load->helper('url');
 		$this->load->helper('html');
 		$this->load->library('form_validation');
+		$this->load->library('upload');
+		$this->load->helper('file');
 
 		//load login model
 		$this->load->library('session');
@@ -37,10 +39,10 @@ class C_eventnurash extends CI_Controller {
 
 	public function UploadEventNurash()
 	{
-		$event_name = $this->input->post('event_name');
+		$event_name = str_replace("'", "", $this->input->post('event_name'));
 		$date =  $this->input->post('event_date');
 		$event_date = date('Y-m-d',strtotime($date));
-		$description = $this->input->post('event_description');
+		$description = str_replace("'", "", $this->input->post('event_description'));
 		$create_date = date('Y-m-d');
 
 		//upload foto
@@ -55,6 +57,14 @@ class C_eventnurash extends CI_Controller {
 
 		$image = $this->upload->do_upload('event_image');
 		$data_image = $this->upload->data('file_name');
+
+		$upload_kajian=array(
+			'event_name'=>$event_name,
+			'event_date'=>$event_date,
+			'event_description'=> $description,
+			'event_image'=> $data_image,
+			'create_date' => $create_date
+			);
 
 		$this->M_eventnurash->UploadEventNurash($event_name,$event_date,$description,$data_image,$create_date);
 
@@ -82,7 +92,10 @@ class C_eventnurash extends CI_Controller {
 		$uw = $this->M_Index->logged_in();
 		if ($this->M_Index->logged_in()) {
 
-			$data['event'] = $this->M_eventnurash->showEventNurash($id);
+			$data['event'] = $this->M_eventnurash->showEventNurashById($id);
+			// echo "<pre>";
+			// print_r($data['event']);
+			// exit();
 
 			$this->load->view('V_Header.php');
 			$this->load->view('V_SideMenu.php');
@@ -112,6 +125,24 @@ class C_eventnurash extends CI_Controller {
 
 		$image = $this->upload->do_upload('event_image');
 		$data_image = $this->upload->data('file_name');
+		//mengecek jika 
+		// if ( ! $this->upload->do_upload('event_image')){
+		//     $error = array('error' => $this->upload->display_errors());                
+		//     print_r($error);                    
+		//     exit();               
+		// }else{
+		// 	$error = array('error' => $this->upload->display_errors());                
+		//     print_r($error);
+		//     print_r($data_image);               
+		//     exit();
+		// }
+
+		$upload_kajian=array(
+			'event_name'=>$event_name,
+			'event_date'=>$event_date,
+			'event_description'=> $description,
+			'event_image'=> $data_image
+			);
 
 		$this->M_eventnurash->EditEventNurash($event_name,$event_date,$description,$data_image,$id);
 

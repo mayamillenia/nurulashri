@@ -9,7 +9,7 @@
 				</div>
 				<div class="x_content">
 					<br />
-					<form data-parsley-validate class="form-horizontal form-label-left" enctype="multipart/form-data" action="<?php echo base_url('EventNurash/Upload/EditEventNurash')?>" method="post" > 
+					<form data-parsley-validate class="form-horizontal form-label-left" enctype="multipart/form-data" action="<?php echo base_url('EventNurash/Upload/EditEventNurash/'.$event[0]['event_id'])?>" method="post" > 
 						<div class="form-group">
 							<label class="control-label col-md-3 col-sm-3 col-xs-12">Event Name <span class="required">*</span>
 							</label>
