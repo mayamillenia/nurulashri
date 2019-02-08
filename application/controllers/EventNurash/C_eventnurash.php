@@ -158,4 +158,10 @@ class C_eventnurash extends CI_Controller {
 
 		redirect('EventNurash/Update');
 	}
+
+	public function hapusEvent(){
+		$id = $this->input->post('id');
+
+		$this->M_eventnurash->hapusEvent($id);
+	}
 }

@@ -45,4 +45,10 @@ class M_eventnurash extends CI_Model {
 		$run = $this->db->query($sql);
 	}
 
+	public function hapusEvent($id)
+	{
+		$sql = "DELETE FROM event_nurash WHERE event_id = '$id'";
+		$run = $this->db->query($sql);
+	}
+
 }

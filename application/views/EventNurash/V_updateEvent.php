@@ -29,7 +29,7 @@
 										<td><?php echo $k['event_date']?></td>
 										<td>
 											<a title="edit kajian ..." href="<?php echo base_url('EventNurash/Update/UpdateKajian/'.$k['event_id'])?>" class="btn btn-primary btn-xs" ><i class="fa fa-edit"></i></a>
-											<a title="delete kajian ..." onclick="hapusKajianMuslim($(this))" class="btn btn-danger btn-xs" value="<?php echo $k['event_id']?>" ><i class="fa fa-trash"></i></a>
+											<a title="delete kajian ..." onclick="hapusEventNurash($(this))" class="btn btn-danger btn-xs" value="<?php echo $k['event_id']?>" ><i class="fa fa-trash"></i></a>
 										</td>
 									</tr>
 								</tbody>

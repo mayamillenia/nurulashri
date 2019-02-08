@@ -47,3 +47,25 @@ function hapusKajianMuslim(th){
     return false;
   }
 }
+
+function hapusEventNurash(th){
+  var id = th.attr('value');
+  var conf = confirm('Yakin untuk menghapusnya?');
+  var baseurl = "http://192.168.168.117/nurulashri/";
+
+  if (conf == true) {
+    $.ajax({
+      type: "POST",
+      url: baseurl+"EventNurash/Update/hapusEvent/"+id,
+      data: {
+        id: id
+      },
+      success: function(response){
+          th.parent('td').parent('tr').remove();
+      }
+    })
+  }else{
+    alert('hapus di batalkan');
+    return false;
+  }
+}
