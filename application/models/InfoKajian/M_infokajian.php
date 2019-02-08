@@ -37,6 +37,13 @@ class M_infokajian extends CI_Model {
 		$run = $this->db->query($sql);
 	}
 
+	public function UpdateKajian2($judul_kajian, $tanggal_kajian, $pemateri_kajian, $deskripsi_kajian,$id){
+		$sql = "UPDATE info_kajian 
+				SET judul_kajian = '$judul_kajian', tanggal_kajian = '$tanggal_kajian', pemateri_kajian = '$pemateri_kajian', deskripsi_kajian = '$deskripsi_kajian'
+				WHERE id = '$id'";
+		$run = $this->db->query($sql);
+	}
+
 	public function hapusKajian($id)
 	{
 		$sql = "DELETE FROM info_kajian WHERE id = '$id'";

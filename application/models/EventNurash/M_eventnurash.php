@@ -37,4 +37,12 @@ class M_eventnurash extends CI_Model {
 		$run = $this->db->query($sql);
 	}
 
+	public function EditEventNurash2($event_name,$event_date,$event_description,$id)
+	{
+		$sql = "UPDATE event_nurash 
+				SET event_name = '$event_name', event_date = '$event_date', event_description = '$event_description'
+				WHERE event_id = '$id'";
+		$run = $this->db->query($sql);
+	}
+
 }

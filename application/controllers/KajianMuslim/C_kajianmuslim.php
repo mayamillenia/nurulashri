@@ -129,15 +129,27 @@ class C_kajianmuslim extends CI_Controller {
 		// }
 		$data_image = $this->upload->data('file_name');
 
-		$upload_kajian=array(
-			'judul_kajian'=>$judul_kajian,
-			'tanggal_kajian'=>$tanggal_kajian,
-			'pemateri_kajian'=>$pemateri_kajian,
-			'deskripsi_kajian'=> $deskripsi_kajian,
-			'image_kajian'=> $data_image
-			);
+		if (!empty($data_image)) {
+			$upload_kajian=array(
+				'judul_kajian'=>$judul_kajian,
+				'tanggal_kajian'=>$tanggal_kajian,
+				'pemateri_kajian'=>$pemateri_kajian,
+				'deskripsi_kajian'=> $deskripsi_kajian,
+				'image_kajian'=> $data_image
+				);
 
-		$this->M_infokajian->UpdateKajian($judul_kajian,$tanggal,$pemateri_kajian,$deskripsi_kajian,$data_image,$id);
+			$this->M_infokajian->UpdateKajian($judul_kajian,$tanggal,$pemateri_kajian,$deskripsi_kajian,$data_image,$id);
+		}else{
+			$upload_kajian=array(
+				'judul_kajian'=>$judul_kajian,
+				'tanggal_kajian'=>$tanggal_kajian,
+				'pemateri_kajian'=>$pemateri_kajian,
+				'deskripsi_kajian'=> $deskripsi_kajian
+				);
+
+			$this->M_infokajian->UpdateKajian2($judul_kajian,$tanggal,$pemateri_kajian,$deskripsi_kajian,$id);
+		}
+
 
 		redirect('KajianMuslim/Kajian');
 	}

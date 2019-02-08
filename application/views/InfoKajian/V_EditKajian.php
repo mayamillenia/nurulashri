@@ -36,7 +36,7 @@
 							</label>
 							<div class="col-md-6 col-sm-6 col-xs-12">
 								<br/>
-								<input type="file" id="image-source" name="image_kajian" style="margin-bottom: 10px" />
+								<input type="file" id="image-source" name="image_kajian" value="<?php echo $kajian[0]['image_kajian']?>" style="margin-bottom: 10px" />
 								<img src="<?php echo base_url('assets/images/kajian/'.$kajian[0]['image_kajian']) ?>" width="300" height="300"/>
 							</div>
 						</div>

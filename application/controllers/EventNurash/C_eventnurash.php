@@ -136,15 +136,25 @@ class C_eventnurash extends CI_Controller {
 		//     print_r($data_image);               
 		//     exit();
 		// }
+		if (!empty($data_image)) {
+			$upload_kajian=array(
+				'event_name'=>$event_name,
+				'event_date'=>$event_date,
+				'event_description'=> $description,
+				'event_image'=> $data_image
+				);
 
-		$upload_kajian=array(
-			'event_name'=>$event_name,
-			'event_date'=>$event_date,
-			'event_description'=> $description,
-			'event_image'=> $data_image
-			);
+			$this->M_eventnurash->EditEventNurash($event_name,$event_date,$description,$data_image,$id);
+		}else{
+			$upload_kajian=array(
+				'event_name'=>$event_name,
+				'event_date'=>$event_date,
+				'event_description'=> $description
+				);
 
-		$this->M_eventnurash->EditEventNurash($event_name,$event_date,$description,$data_image,$id);
+			$this->M_eventnurash->EditEventNurash2($event_name,$event_date,$description,$id);
+		}
+
 
 		redirect('EventNurash/Update');
 	}
