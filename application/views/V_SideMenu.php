@@ -58,7 +58,10 @@
             <li><a href="<?php echo base_url('logout');?>"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
           </ul>
         </li>
-        
+        <li>
+          <a href="<?php echo base_url('NurulAshri')?>">Visit Website Nurul Ashri</a>
+        </li>
+
       </ul>
     </nav>
   </div>

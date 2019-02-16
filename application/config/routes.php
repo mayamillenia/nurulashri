@@ -70,3 +70,6 @@ $route['EventNurash/Upload'] = 'EventNurash/C_eventnurash/index';
 $route['EventNurash/Upload/(:any)'] = 'EventNurash/C_eventnurash/$1';
 $route['EventNurash/Update'] = 'EventNurash/C_eventnurash/Update';
 $route['EventNurash/Update/(:any)/(:any)'] = 'EventNurash/C_eventnurash/$1/$2';
+
+//-------------------- Front Nurul Ashri ----------------------------//
+$route['NurulAshri'] = 'NurulAshri/C_nurulashri/index';
